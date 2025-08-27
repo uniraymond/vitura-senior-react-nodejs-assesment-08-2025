@@ -137,3 +137,9 @@ dist
 # Vite logs files
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+# IDEs and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
