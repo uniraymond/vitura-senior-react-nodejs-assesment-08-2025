@@ -11,7 +11,7 @@ Build a small fullstack app: a Node.js API that serves products and a simple Rea
 - Data: load `sample-products.json` in memory at startup (no database)
 
 ## Dataset
-Use the provided [`sample-products.json`](https://github.com/mjkearns/vitura-senior-fullstack-assesment-08-2025/blob/main/sample-products.json) with 120 realistic products across multiple categories and brands. Load it in memory at startup. Do not add a database.
+Use the provided [`sample-products.json`](https://github.com/mjkearns/vitura-senior-react-nodejs-assesment-08-2025/blob/main/sample-products.json) with 120 realistic products across multiple categories and brands. Load it in memory at startup. Do not add a database.
 
 ## Functional Requirements
 - **Backend**
