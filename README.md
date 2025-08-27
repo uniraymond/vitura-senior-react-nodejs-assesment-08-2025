@@ -1,4 +1,4 @@
-# Vitura Senior Fullstack (React/Node.js) Assessment - Q1 2025
+# Vitura | Senior Fullstack (React/Node.js) Assessment - Q1 2025
 
 ## Overview
 Build a small fullstack app: a Node.js API that serves products and a simple React UI that consumes it. The solution should reflect standard practices with Node.js, Express, and React with TypeScript. Use async throughout. Keep setup minimal and focus on senior-level judgement.
