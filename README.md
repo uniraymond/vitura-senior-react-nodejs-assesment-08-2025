@@ -1,7 +1,7 @@
 # Vitura Senior Fullstack (React/Node.js) Assessment - Q1 2025
 
 ## Overview
-Build a small fullstack app: a Node.js API that serves products and a simple React UI that consumes it. The solution should reflect standard practices with Node.js, Express (or Fastify), and React with TypeScript. Use async throughout. Keep setup minimal and focus on senior-level judgement.
+Build a small fullstack app: a Node.js API that serves products and a simple React UI that consumes it. The solution should reflect standard practices with Node.js, Express, and React with TypeScript. Use async throughout. Keep setup minimal and focus on senior-level judgement.
 
 **Timebox:** Aim for under three hours. Stop at three hours and note what remains.
 
@@ -79,7 +79,7 @@ Provide one focused test only:
 - **Developer experience** - README clarity, simple startup, useful logs
 
 ## Getting Started
-- Use Express or Fastify for the backend
+- Use Express for the backend
 - Use React with Vite or Create React App
 - Use TypeScript on both backend and frontend
 - Keep it small, async, and readable
