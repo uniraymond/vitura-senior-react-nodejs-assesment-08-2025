@@ -53,6 +53,7 @@ Provide one focused test only:
 - OR a React component test (eg: "New" filter shows only items created in last 30 days)
 
 ## Deliverables
+A **GitHub repo** that contains
 - Node.js backend project (TypeScript)
 - React frontend project (TypeScript)
 - Async implementation with middleware for errors, logging, and validation
