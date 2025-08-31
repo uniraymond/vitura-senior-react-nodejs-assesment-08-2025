@@ -11,3 +11,21 @@ export interface Product {
 }
 
 export type UserView = 'admin' | 'doctor';
+
+
+export interface ProductsResponse {
+    id: string;
+    publicName: string;
+    category?: string;
+    brand?: string;
+    isWholesaleProduct: boolean;
+    visibleTo: UserView;
+    priceCents?: number;
+    createdAt: string;
+}
+
+export interface ProductsQueryParams {
+    view?: UserView;
+    q?: string;
+    new?: string;
+}

@@ -1,5 +1,6 @@
 import express from 'express';
 import {loadProducts} from './utils/loadProducts';
+import productRouter from './routes/products';
 
 export const createApp = async () => {
     const app = express();
@@ -13,7 +14,7 @@ export const createApp = async () => {
     }
 
     app.use(express.json());
-    // app.use('/products', products);
+    app.use('/products', productRouter);
 
     return app;
 }
