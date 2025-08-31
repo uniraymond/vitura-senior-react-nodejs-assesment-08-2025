@@ -5,7 +5,7 @@ const ProductList = ({products}: {products: Product[]}) => {
 
     return (
         <div style={{display: 'grid', gap: 12}}>
-            {items && items.map(product => (
+            {products && products.map(product => (
                 <Card key={product.id} variant="outlined">
                     <CardContent>
                         <Typography variant="h6">

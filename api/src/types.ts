@@ -29,3 +29,9 @@ export interface ProductsQueryParams {
     q?: string;
     new?: string;
 }
+
+export interface ErrorResponse {
+    error: string;
+    message: string;
+    statusCode: number;
+}

@@ -72,7 +72,6 @@ const App = () => {
         />
 
         {loading && <Loading />}
-        {console.log('products: ', products)}
         {error && <div role="alert" style={{ color: 'crimson', padding: 8 }}>{error}</div>}
         {!loading && !error && products.length === 0 && <Empty />}
         {!loading && !error && products.length > 0 && <ProductList products={products} />}
