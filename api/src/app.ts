@@ -4,13 +4,14 @@ import productRouter from './routes/products';
 import cors from 'cors';
 import { logHandler } from './middleware/logHandler';
 import { errorHandler } from './middleware/errorHandler';
+import { config } from './config';
 
 export const createApp = async () => {
     const app = express();
 
     const allowedOrigins = [
-        `http://localhost:${process.env.CLIENTPORT}`,
-        `http://127.0.0.1:${process.env.CLIENTPORT}`
+        `http://localhost:${config.clientPort}`,
+        `http://127.0.0.1:${config.clientPort}`
     ];
 
     try {
