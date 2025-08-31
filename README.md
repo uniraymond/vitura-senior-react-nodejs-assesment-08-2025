@@ -11,12 +11,12 @@
 
  cd frontend
  npm install
- npm build
+ npm run build
  npm run dev
 
  cd api
  npm install
- npm build
+ npm run build
  npm run dev
 
  the frontend url should be http://localhost:5051
