@@ -1,15 +1,16 @@
 export interface Product {
-    id: string;
-    publicName: string;
-    category?: string;
-    brand?: string;
-    isWholesaleProduct?: boolean;
-    visibleTo: UserView[];
-    createdAt: string;
-    priceCents?: number;
-    tags?: string[];
+    id: string
+    publicName: string
+    brand?: string
+    category?: string
+    createdAt: string
+    isWholesaleProduct?: boolean
+    priceCents?: number
 }
 
 export type UserView = 'admin' | 'doctor';
 
-export interface ProductsResponse {items: Product[]}
+export interface ProductsResponse {
+    data: Product[]
+    count: number
+}

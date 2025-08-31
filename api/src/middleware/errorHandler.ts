@@ -1,5 +1,5 @@
 import type { Request, Response, NextFunction } from 'express';
-import { ErrorResonse } from '../types';
+import { ErrorResponse } from '../types';
 
 export const errorHandler = (
   error: Error,
@@ -9,11 +9,11 @@ export const errorHandler = (
 ) => {
   console.error('Error: ', error);
 
-  const errorResonse: ErrorResonse = {
+  const errorResponse: ErrorResponse = {
     error: error.name || 'Internal Server Errror',
     message: error.message || 'An unexpected error occurred',
     statusCode: 500
   };
 
-  res.status(errorResonse.statusCode).json(errorResonse);
+  res.status(errorResponse.statusCode).json(errorResponse);
 };

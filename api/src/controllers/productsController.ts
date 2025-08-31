@@ -1,8 +1,6 @@
-import {Request, Response} from 'express';
+import {Request, Response, NextFunction} from 'express';
 import {getProducts} from '../utils/loadProducts';
-import {} from '../types';
 import {ProductsQueryParams, UserView, ApiResponse, ProductsResponse } from '../types';
-import {NextFunction} from 'express';
 
 export const getProductsHandler = async (
     req: Request<{}, {}, {}, ProductsQueryParams>,
@@ -35,21 +33,20 @@ export const getProductsHandler = async (
             });
         }
 
-        const responseData: ProductsResponse[] = products.map(product => ({
-            id: product.id,
-            publicName: product.publicName,
-            category: product.category,
-            brand: product.brand,
-            isWholesaleProduct: product.isWholesaleProduct,
-            visibleTo: product.visibleTo,
-            priceCents: product.priceCents,
-            createdAt: product.createdAt
+        const responseData: ProductsResponse[] = products.map(p => ({
+            id: p.id,
+            publicName: p.publicName,
+            category: p.category ?? '',
+            brand: p.brand ?? '',
+            isWholesaleProduct: p.isWholesaleProduct ?? false,
+            priceCents: p.priceCents ?? 0,
+            createdAt: p.createdAt,
         }));
 
-        const response: ApiResponse<ProductsResponse> = {
+        const response: ApiResponse<ProductsResponse[]> = {
             data: responseData,
-            total: responseData.length
-        }
+            count: responseData.length,
+        };
 
         res.status(200).json(response);
     } catch (error) {

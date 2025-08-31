@@ -6,4 +6,9 @@ npx tsc -init
 
 npm install
 
+npm run dev
+
+npm run test
+
+
 

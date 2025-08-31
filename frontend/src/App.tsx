@@ -40,11 +40,11 @@ const App = () => {
           signal: controller.signal,
         });
         setProducts(res.data.data);
-      } catch (err) {
+      } catch (err: any) {
         if (controller.signal.aborted) {
           return;
         }
-        setError(e?.message ?? 'Error');
+        setError(err?.message ?? 'Error');
       } finally {
         if (!controller.signal.aborted) {
           setLoading(false);

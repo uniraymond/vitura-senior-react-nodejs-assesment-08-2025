@@ -6,9 +6,10 @@
   "scripts": {
     "dev": "tsx watch src/server.ts",
     "build": "tsc && npm run postbuild",
-    "postbuild": "mkdir -p dist/data && cp src/data/sample-products.json dist/data/sample-products.json",
+    "postbuild": "mkdir -p dist/data && cp data/sample-products.json dist/data/sample-products.json",
     "start": "node dist/server.js",
-    "test": "jest --runInBand"
+    "test": "jest --runInBand",
+    "clean": "rimraf dist \"src/**/*.js\" \"src/**/*.js.map\" \"src/**/*.d.ts\" \"src/**/*.d.ts.map\" \"tests/**/*.js\" \"tests/**/*.js.map\" \"tests/**/*.d.ts\" \"tests/**/*.d.ts.map\""
   },
   "keywords": [],
   "author": "",
