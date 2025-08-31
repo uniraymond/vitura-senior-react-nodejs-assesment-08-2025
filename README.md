@@ -1,5 +1,34 @@
 # Vitura | Senior Fullstack (React/Node.js) Assessment - Q1 2025
 
+## Run the Project
+ - Backend (api) the folder name is api
+ - Frontend the folder name is frontend
+
+ pull from git git@github.com:uniraymond/vitura-senior-react-nodejs-assesment-08-2025.git
+ it is under develop branch
+
+ unzip the download file
+
+ cd frontend
+ npm install
+ npm build
+ npm run dev
+
+ cd api
+ npm install
+ npm build
+ npm run dev
+
+ the frontend url should be http://localhost:5051
+
+ the api url should be http://localhost:5050
+
+ if frontend can't load the products, rerun the api "npm run dev" again
+
+ under api folder to do the jest test
+
+ npm run test
+
 ## Overview
 Build a small fullstack app: a Node.js API that serves products and a simple React UI that consumes it. The solution should reflect standard practices with Node.js, Express, and React with TypeScript. Use async throughout. Keep setup minimal and focus on senior-level judgement.
 

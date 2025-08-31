@@ -1,14 +1,28 @@
-npm init -y
-npm i express cors dotenv
-npm i -D typescript ts-node-dev @types/node @types/express @types/cors jest
+## Run the Project
+ - Backend (api) the folder name is api
+ - Frontend the folder name is frontend
 
-npx tsc -init
+ pull from git git@github.com:uniraymond/vitura-senior-react-nodejs-assesment-08-2025.git
+ it is under develop branch
 
-npm install
+ unzip the download file
 
-npm run dev
+ cd frontend
+ npm install
+ npm build
+ npm run dev
 
-npm run test
+ cd api
+ npm install
+ npm build
+ npm run dev
 
+ the frontend url should be http://localhost:5051
 
+ the api url should be http://localhost:5050
 
+ if frontend can't load the products, rerun the api "npm run dev" again
+
+ under api folder to do the jest test
+
+ npm run test

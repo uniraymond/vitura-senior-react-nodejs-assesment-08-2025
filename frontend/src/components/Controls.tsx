@@ -25,6 +25,20 @@ const Controls = ({ q, setQ, view, setView, onlyNew, setOnlyNew }: Props) => {
                 value={view}
                 exclusive
                 onChange={(_e, val) => val && setView(val)}
+                sx={{
+                    '& .MuiToggleButton-root': {
+                    textTransform: 'none',
+                    border: '1px solid',
+                    borderColor: 'divider',
+                    '&.Mui-selected': {
+                        bgcolor: 'primary.main',
+                        color: 'primary.contrastText',
+                    },
+                    '&.Mui-selected:hover': {
+                        bgcolor: 'primary.dark',
+                    },
+                    },
+                }}
                 aria-label="View role"
             >
                 <ToggleButton value="doctor" aria-label="Doctor view">Doctor</ToggleButton>
