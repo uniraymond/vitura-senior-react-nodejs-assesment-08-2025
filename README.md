@@ -8,13 +8,13 @@
 pull from git
 
 ```
-git clone -b develop git@github.com:uniraymond/vitura-senior-react-nodejs-assesment-08-2025.git
+git clone -b develop https://github.com/uniraymond/vitura-senior-react-nodejs-assesment-08-2025.git
 cd vitura-senior-react-nodejs-assesment-08-2025
 ```
 
 if want to run with React-Redux
 ```
-git clone -b feature/state-management-react-redux git@github.com:uniraymond/vitura-senior-react-nodejs-assesment-08-2025.git
+git clone -b feature/state-management-react-redux https://github.com/uniraymond/vitura-senior-react-nodejs-assesment-08-2025.git
 cd vitura-senior-react-nodejs-assesment-08-2025
 ```
 
