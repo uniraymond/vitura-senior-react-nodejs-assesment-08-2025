@@ -1,12 +1,12 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-import axios, { isAxiosError } from "axios";
-import type { Product, ProductsResponse, ProductState } from "../../types";
+import axios from "axios";
+import type { ProductsResponse, ProductState } from "../../types";
 import type { RootState } from '../store/store';
 
 const initialState: ProductState = {
     data: [],
-    Loading: false,
+    loading: false,
     status: null,
     error: null,
     count: 0,
@@ -29,10 +29,11 @@ export const fetchProduct = createAsyncThunk<ProductsResponse, void, {state: Roo
 
             return response.data;
         } catch (error) {
+                const err = error as { code?: string; name?: string; message?: string; response?: { data?: any; status?: number } };
             return thunkAPI.rejectWithValue({
-                message: error.response?.data?.message || error.message,
-                status: error.response?.status || 500,
-                error: error.response?.data || error.message,
+                message: err.response?.data?.message || err.message,
+                status: err.response?.status || 500,
+                error: err.response?.data || err.message,
             });
         }
     }
@@ -62,7 +63,6 @@ const productSlice = createSlice({
                     return;
                 }
                 state.error = action.error.message ?? 'Fetch failed';
-                state.errorDetails = action.error;
             });
     },
 });

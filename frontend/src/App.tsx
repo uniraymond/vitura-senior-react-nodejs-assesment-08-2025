@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Container, CssBaseline, Typography } from '@mui/material';
 import Controls from './components/Controls';
 import Loading from './components/Loading';
@@ -6,7 +6,6 @@ import Empty from './components/Empty';
 import ProductList from './components/ProductList';
 
 import { useDebounce } from './hooks/useDebounce';
-import type { ProductsResponse, Product, UserView } from './types';
 import { fetchProduct } from './redux/services/productSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import type { RootState, AppDispatch } from './redux/store/store';
@@ -26,7 +25,7 @@ const App = () => {
   }, [debounceQuery, dispatch]);
 
   useEffect(() => {
-    const products = dispatch(fetchProduct());
+    dispatch(fetchProduct());
   }, [dispatch, q, view, onlyNew]);
 
   return (

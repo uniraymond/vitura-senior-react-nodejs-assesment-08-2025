@@ -6,14 +6,20 @@ export interface Product {
     createdAt: string
     isWholesaleProduct?: boolean
     priceCents?: number
-    visiableTo: UserView[]
+    visibleTo: UserView[]
 }
 
 export type UserView = 'admin' | 'doctor';
 
 export interface ProductsResponse {
     data: Product[],
-    loading: false,
-    status: null,
     count: number
+}
+
+export interface ProductState {
+    data: Product[];
+    loading: boolean;
+    status: 'idle' | 'loading' | 'succeeded' | 'failed' | null;
+    error: string | null;
+    count: number;
 }

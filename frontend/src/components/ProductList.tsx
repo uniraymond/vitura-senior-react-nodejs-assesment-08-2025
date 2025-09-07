@@ -1,5 +1,5 @@
 import { Card, CardContent, Chip, Stack, Typography } from '@mui/material';
-import type {Product} from '../types';
+import type {Product, UserView} from '../types';
 
 const ProductList = ({products}: {products: Product[]}) => {
 
@@ -12,7 +12,7 @@ const ProductList = ({products}: {products: Product[]}) => {
                             {product.publicName}
                         </Typography>
                         <Stack direction="row" spacing={1}>
-                            {product.visibleTo.map((v) => (
+                            {(product.visibleTo ?? []).map((v: UserView) => (
                             <Chip key={v} label={v} />
                             ))}
                         </Stack>
