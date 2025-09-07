@@ -4,30 +4,76 @@
  - Backend (api) the folder name is api
  - Frontend the folder name is frontend
 
- pull from git git@github.com:uniraymond/vitura-senior-react-nodejs-assesment-08-2025.git
- it is under develop branch
+### 1. Clone & Setup
+pull from git
 
- unzip the download file
+```
+git clone -b develop git@github.com:uniraymond/vitura-senior-react-nodejs-assesment-08-2025.git
+cd vitura-senior-react-nodejs-assesment-08-2025
+```
 
- cd frontend
- npm install
- npm run build
- npm run dev
+if want to run with React-Redux
+```
+git clone -b feature/state-management-react-redux git@github.com:uniraymond/vitura-senior-react-nodejs-assesment-08-2025.git
+cd vitura-senior-react-nodejs-assesment-08-2025
+```
 
- cd api
- npm install
- npm run build
- npm run dev
+if download the zip file, unzip the download file
 
- the frontend url should be http://localhost:5051
+### 2. Frontend
+```
+cd frontend
+npm install
+npm run build
+npm run dev
+```
+Frontend runs on: http://localhost:5051
 
- the api url should be http://localhost:5050
+### 3. Backend (API)
+```
+cd api
+npm install
+npm run build
+npm run dev
+```
+API runs on: http://localhost:5050
 
- if frontend can't load the products, rerun the api "npm run dev" again
+ ⚠️ If the frontend can’t load products, restart the API with:
 
- under api folder to do the jest test
+```
+npm run dev
+```
 
- npm run test
+### 4. Tests (Backend)
+
+From inside the api folder:
+```
+npm run test
+```
+
+### About the Architecture and Design Notes
+
+State Management Choice
+React Redux Toolikt was used to manage application state.
+ Centralized handling of product data and filters.
+ build support for async thunks makes API integration straightforward
+
+#### Could be imporve due to time limit
+1. error handling, for the error handling I can add more on handle errors
+2. local in-memory state duplication
+3. caching
+4. add unit tests for the slices and thunks
+
+#### Production Considerations
+1. Database indexing
+2. Caching strategy, for example API caching with redis, client-side with redux-persist
+3. Authentication & Authorization
+4. Deployment with CI/CD pipeline and so on
+5. Monitoring with logs
+6. Testing: end-to-end tests
+
+---
+
 
 ## Overview
 Build a small fullstack app: a Node.js API that serves products and a simple React UI that consumes it. The solution should reflect standard practices with Node.js, Express, and React with TypeScript. Use async throughout. Keep setup minimal and focus on senior-level judgement.
