@@ -6,11 +6,14 @@ export interface Product {
     createdAt: string
     isWholesaleProduct?: boolean
     priceCents?: number
+    visiableTo: UserView[]
 }
 
 export type UserView = 'admin' | 'doctor';
 
 export interface ProductsResponse {
-    data: Product[]
+    data: Product[],
+    loading: false,
+    status: null,
     count: number
 }

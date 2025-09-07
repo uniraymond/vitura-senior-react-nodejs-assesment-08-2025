@@ -1,4 +1,4 @@
-import { Card, CardContent, Typography } from '@mui/material';
+import { Card, CardContent, Chip, Stack, Typography } from '@mui/material';
 import type {Product} from '../types';
 
 const ProductList = ({products}: {products: Product[]}) => {
@@ -11,6 +11,11 @@ const ProductList = ({products}: {products: Product[]}) => {
                         <Typography variant="h6">
                             {product.publicName}
                         </Typography>
+                        <Stack direction="row" spacing={1}>
+                            {product.visibleTo.map((v) => (
+                            <Chip key={v} label={v} />
+                            ))}
+                        </Stack>
                         <Typography variant="body2">
                             {product.brand ?? '-'} . {product.category ?? '-'} . {new Date(product.createdAt).toLocaleDateString()}
                         </Typography>

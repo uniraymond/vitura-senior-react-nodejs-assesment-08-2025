@@ -7,7 +7,7 @@ export interface Product {
     visibleTo: UserView[];
     createdAt: string;
     priceCents?: number;
-    tags?: string[]
+    tags?: string[];
 }
 
 export type UserView = 'admin' | 'doctor';
@@ -21,6 +21,7 @@ export interface ProductsResponse {
     isWholesaleProduct: boolean;
     priceCents: number;
     createdAt: string;
+    visibleTo: UserView[];
 }
 
 export interface ProductsQueryParams {

@@ -41,6 +41,7 @@ export const getProductsHandler = async (
             isWholesaleProduct: p.isWholesaleProduct ?? false,
             priceCents: p.priceCents ?? 0,
             createdAt: p.createdAt,
+            visibleTo:p.visibleTo ?? [],
         }));
 
         const response: ApiResponse<ProductsResponse[]> = {

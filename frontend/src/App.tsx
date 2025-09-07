@@ -4,57 +4,30 @@ import Controls from './components/Controls';
 import Loading from './components/Loading';
 import Empty from './components/Empty';
 import ProductList from './components/ProductList';
+
 import { useDebounce } from './hooks/useDebounce';
 import type { ProductsResponse, Product, UserView } from './types';
-import axios from 'axios';
+import { fetchProduct } from './redux/services/productSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import type { RootState, AppDispatch } from './redux/store/store';
+import {setQ, setView, setOnlyNew} from './redux/services/filterSlice';
 
 const App = () => {
-  const [q, setQ] = useState('');
-  const [view, setView] = useState<UserView>('doctor');
-  const [onlyNew, setOnlyNew] = useState(false);
-  const [products, setProducts] = useState<Product[]>([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+  const dispatch = useDispatch<AppDispatch>();
+  const {data: products, loading, error} = useSelector((state: RootState) => state.product);
+  
+  const {q, view, onlyNew} = useSelector((state: RootState) => state.filters);
 
-  const debounceQuery = useDebounce(q, 500);
-  const controllerRef = useRef<AbortController | null>(null);
-
-  const query = useMemo(() => ({
-    view,
-    q: debounceQuery || undefined,
-    onlyNew: onlyNew || undefined,
-  }), [view, debounceQuery, onlyNew]);
+  const [localQuery, setLocalQuery] = useState('');
+  const debounceQuery = useDebounce(localQuery, 500);
 
   useEffect(() => {
-    controllerRef.current?.abort();
-    const controller = new AbortController();
-    controllerRef.current = controller;
+    dispatch(setQ(debounceQuery));
+  }, [debounceQuery, dispatch]);
 
-    const load = async () => {
-      try {
-        setLoading(true);
-        setError(null);
-
-        const res = await axios.get<ProductsResponse>('http://localhost:5050/products', {
-          params: {view: query.view, q: query.q, new: query.onlyNew},
-          signal: controller.signal,
-        });
-        setProducts(res.data.data);
-      } catch (err: any) {
-        if (controller.signal.aborted) {
-          return;
-        }
-        setError(err?.message ?? 'Error');
-      } finally {
-        if (!controller.signal.aborted) {
-          setLoading(false);
-        }
-      }
-    }
-
-    void load();
-    return () => controller.abort();
-  }, [query.view, query.q,query.onlyNew]);
+  useEffect(() => {
+    const products = dispatch(fetchProduct());
+  }, [dispatch, q, view, onlyNew]);
 
   return (
     <>
@@ -63,12 +36,12 @@ const App = () => {
         <Typography variant="h4" sx={{ mb: 2 }}>Products</Typography>
 
         <Controls
-          q={q}
-          setQ={setQ}
+          q={localQuery}
+          setQ={setLocalQuery}
           view={view}
-          setView={setView}
+          setView={(v) => dispatch(setView(v))}
           onlyNew={onlyNew}
-          setOnlyNew={setOnlyNew}
+          setOnlyNew={(o) => dispatch(setOnlyNew(o))}
         />
 
         {loading && <Loading />}
